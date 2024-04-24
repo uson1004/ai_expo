@@ -1,7 +1,5 @@
 package com.example.ai_expo;
 
-import static com.example.ai_expo.R.id.management;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -11,10 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class plant_mangement extends AppCompatActivity {
+public class plant_management extends AppCompatActivity {
 ImageButton dlfrlwkrtjd;
     @SuppressLint("MissingInflatedId")
     @Override

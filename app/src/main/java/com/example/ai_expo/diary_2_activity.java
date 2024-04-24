@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class diary_2_activity extends AppCompatActivity {
@@ -23,7 +21,7 @@ ImageButton imageButton13;
         setContentView(R.layout.activity_diary2);
         Intent intent_diary_1 = new Intent(getApplicationContext(), diary_1_activity.class);
         Intent intent_diary_3 = new Intent(getApplicationContext(), diary_3_activity.class);
-        Intent intent_management = new Intent(getApplicationContext(), plant_mangement.class);
+        Intent intent_management = new Intent(getApplicationContext(), plant_management.class);
         Intent intent_my = new Intent(getApplicationContext(), diary_3_mypage.class);
 
 

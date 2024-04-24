@@ -4,15 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent_diary_2 = new Intent(getApplicationContext(), diary_1_activity.class);
-        Intent intent = new Intent(getApplicationContext(), plant_mangement.class);
+        Intent intent = new Intent(getApplicationContext(), plant_management.class);
         main_management = (ImageButton) findViewById(R.id.management);
         main_write = (ImageButton) findViewById(R.id.main_write);
         main_management.setOnClickListener(new View.OnClickListener(){

@@ -17,7 +17,7 @@
             android:name=".diary_3_mypage"
             android:exported="false" />
         <activity
-            android:name=".plant_mangement"
+            android:name=".plant_management"
             android:exported="false" />
         <activity
             android:name=".diary_1_activity"

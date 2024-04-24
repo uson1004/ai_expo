@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.ai_expo.Dtos.PlantInfoDto;
+
 import retrofit2.Call;
 
 public class plant_management extends AppCompatActivity {
@@ -23,7 +25,6 @@ ImageButton dlfrlwkrtjd;
         dlfrlwkrtjd.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 startActivity(intent_management);
-
             }
         });
 

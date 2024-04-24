@@ -1,8 +1,15 @@
-package com.example.ai_expo;
+package com.example.ai_expo.Dtos;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import retrofit2.http.Multipart;
+
 public class JournalDto {
+    @Expose
+    @SerializedName("user_id")
     private String user_id;
     private String title;
     private String content;

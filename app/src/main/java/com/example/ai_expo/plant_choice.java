@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.ai_expo.Dtos.PlantInfoDto;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

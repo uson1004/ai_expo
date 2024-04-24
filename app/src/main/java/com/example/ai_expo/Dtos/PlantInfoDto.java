@@ -1,4 +1,8 @@
-package com.example.ai_expo;
+package com.example.ai_expo.Dtos;
+
+import java.util.List;
+
+import retrofit2.http.Multipart;
 
 public class PlantInfoDto {
     private String plantName;
@@ -8,6 +12,7 @@ public class PlantInfoDto {
     private String rate;
     private int situation;
 
+
     public PlantInfoDto(String plantName, String date, String temp, String humi, String rate, int situation) {
         this.plantName = plantName;
         this.date = date;
@@ -16,6 +21,8 @@ public class PlantInfoDto {
         this.rate = rate;
         this.situation = situation;
     }
+
+
 
     public String getPlantName() {
         return plantName;

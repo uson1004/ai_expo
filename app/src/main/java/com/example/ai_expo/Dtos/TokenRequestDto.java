@@ -1,4 +1,4 @@
-package com.example.ai_expo;
+package com.example.ai_expo.Dtos;
 
 public class TokenRequestDto {
     private String accessToken;

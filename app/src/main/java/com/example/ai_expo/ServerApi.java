@@ -1,9 +1,14 @@
 package com.example.ai_expo;
 
+import com.example.ai_expo.Dtos.JournalDto;
+import com.example.ai_expo.Dtos.PlantInfoDto;
+import com.example.ai_expo.Dtos.TokenDto;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -25,7 +30,7 @@ public interface ServerApi {
 
     @GET("/PlantM/GetInfo")
     Call<PlantInfoDto> GetPlantInfo(
-
+            //@Header("authorization") String token
     );
 
     @POST("/plant/ai/{method}")

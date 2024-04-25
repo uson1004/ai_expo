@@ -1,8 +1,6 @@
 package com.example.ai_expo;
 
 public class LoginResponse {
-
-
     private String username;
     private String pwd;
 

@@ -10,5 +10,7 @@ public class diary_3_mypage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary3_mypage);
+
+
     }
 }

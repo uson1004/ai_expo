@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.ai_expo.Dtos.JournalDto;
+import com.example.ai_expo.Dtos.JournalDtoRequest;
+import com.example.ai_expo.Dtos.JournalDtoResponse;
 import com.example.ai_expo.Dtos.PlantInfoDto;
 
 import retrofit2.Call;
@@ -34,6 +36,8 @@ public class diary_3_activity extends AppCompatActivity {
         });
 
         JournalDto journalDto = new JournalDto("", "", "");
+        JournalDtoResponse journalDtoResponse = new JournalDtoResponse(0, "", "", "", "", "" , null);
+        JournalDtoRequest journalDtoRequest = new JournalDtoRequest("", "", null);
 
         //일기 API
         ServerApi serverApi = ApiProvider.getInstance().create(ServerApi.class);

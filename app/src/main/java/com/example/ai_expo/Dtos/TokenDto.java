@@ -1,7 +1,13 @@
 package com.example.ai_expo.Dtos;
 
+import com.google.gson.annotations.Expose;
+
+
 public class TokenDto {
+
+    @Expose
     private String accessToken;
+    @Expose
     private String refreshToken;
 
     public String getAccessToken() {

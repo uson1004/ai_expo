@@ -1,15 +1,17 @@
 package com.example.ai_expo.Dtos;
 
 import java.util.List;
-
 import retrofit2.http.Multipart;
 
-public class JournalUpdate {
+public class JournalWrite {
+    //string title
+    //string content
+    //List<MultipartFIle> files
     private String title;
     private String content;
     private List<Multipart> files;
 
-    public JournalUpdate(String title, String content, List<Multipart> files) {
+    public JournalWrite(String title, String content, List<Multipart> files) {
         this.title = title;
         this.content = content;
         this.files = files;

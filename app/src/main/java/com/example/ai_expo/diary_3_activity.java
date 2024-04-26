@@ -1,24 +1,40 @@
 package com.example.ai_expo;
 
+import static java.time.LocalDateTime.now;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.ai_expo.Dtos.JournalDto;
 import com.example.ai_expo.Dtos.JournalDtoRequest;
 import com.example.ai_expo.Dtos.JournalDtoResponse;
 import com.example.ai_expo.Dtos.PlantInfoDto;
+import com.example.ai_expo.Dtos.StringResponsesDto;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Header;
+import retrofit2.http.Part;
 
 public class diary_3_activity extends AppCompatActivity {
     ImageButton gotodiary;
+    EditText editTextText2;
+    EditText editTextText3;
+    Button button2;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,111 +44,148 @@ public class diary_3_activity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), diary_2_activity.class);
         Intent intent_management = new Intent(getApplicationContext(), plant_management.class);
 
-        gotodiary=findViewById(R.id.gotodiary);
-        gotodiary.setOnClickListener(new View.OnClickListener(){
+        gotodiary = findViewById(R.id.gotodiary);
+        editTextText2 = (EditText) findViewById(R.id.editTextText2);
+        editTextText3 = (EditText) findViewById(R.id.editTextText3);
+        button2 = (Button) findViewById(R.id.button2);
+
+
+
+
+
+        gotodiary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(intent);
             }
         });
 
-        JournalDto journalDto = new JournalDto("", "", "");
-        JournalDtoResponse journalDtoResponse = new JournalDtoResponse(0, "", "", "", "", "" , null);
-        JournalDtoRequest journalDtoRequest = new JournalDtoRequest("", "", null);
+        //JournalDto journalDto = new JournalDto("", "", "");
+        //JournalDtoResponse journalDtoResponse = new JournalDtoResponse(0, "", "", "", now(), new ArrayList<String>(), null);
 
+
+
+
+
+        LocalTime time = LocalTime.from(now());
         //일기 API
-        ServerApi serverApi = ApiProvider.getInstance().create(ServerApi.class);
-        Call<PlantInfoDto> call = serverApi.PickPhoto();
-
-        //일기 작성
-        serverApi.JournalWrite().enqueue(new Callback<JournalDto>() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+            public void onClick(View v) {
+                ServerApi serverApi = ApiProvider.getInstance().create(ServerApi.class);
+                Call<PlantInfoDto> call = serverApi.PickPhoto();
 
-            }
 
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
+                String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0MDgyNTI1LCJleHAiOjE3MTQxMTg1MjV9.wJk9Sj-Le9U_yEdrB_lN-9GmWlaEvIAcBZO1IIsyXbA";
 
+                String title = editTextText2.getText().toString();
+                String content = editTextText3.getText().toString();
+
+
+                Log.e("fdf",title);
+                Log.e("dfdf",content);
+                JournalDtoRequest journalDtoRequest = new JournalDtoRequest(title, content, null);
+
+                Log.e("get",journalDtoRequest.getTitle());
+                Log.e("get2",journalDtoRequest.getContent());
+                //일기 작성
+                serverApi.JournalWrite(token,journalDtoRequest).enqueue(new Callback<StringResponsesDto>() {
+                    @Override
+                    public void onResponse(Call<StringResponsesDto> call, Response<StringResponsesDto> response) {
+                        Log.d("result", String.valueOf(response.headers()));
+                    }
+
+                    @Override
+                    public void onFailure(Call<StringResponsesDto> call, Throwable t) {
+                        Log.d("err", t.getMessage());
+//                        Log.d("title",title);
+//                        Log.d("content",content);
+                        Log.d("test",editTextText2.getText().toString());
+                    }
+                });
             }
         });
 
         // 일기 삭제
-        serverApi.JournalDelete().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
+//        serverApi.JournalDelete().enqueue(new Callback<JournalDto>() {
+//            @Override
+//            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JournalDto> call, Throwable t) {
+//
+//            }
+//        });
 
         // 일기 선택
-        serverApi.JournalUpdate().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//        serverApi.JournalUpdate().enqueue(new Callback<JournalDto>() {
+//            @Override
+//            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JournalDto> call, Throwable t) {
+//
+//            }
+//        });
 
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
-
-        // 일기 조회
-        serverApi.JournalSearch().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
-
-        // 일기 전체 조회
-        serverApi.JournalSearchALL().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
-
-        // 일기 수정하기
-        serverApi.JournalUpdate().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
-
-        // 전체 일기 검색
-        serverApi.JournalSearchALL().enqueue(new Callback<JournalDto>() {
-            @Override
-            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<JournalDto> call, Throwable t) {
-
-            }
-        });
+//        // 일기 조회
+//        ServerApi.().enqueue(new Callback<JournalDto>() {
+//            @Override
+//            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JournalDto> call, Throwable t) {
+//
+//            }
+//        });
+//
+//        // 일기 전체 조회
+//        serverApi.JournalSearchALL().enqueue(new Callback<JournalDto>() {
+//            @Override
+//            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JournalDto> call, Throwable t) {
+//
+//            }
+//        });
+//
+//        // 일기 수정하기
+////        serverApi.JournalUpdate().enqueue(new Callback<JournalDto>() {
+////            @Override
+////            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+////
+////            }
+////
+////            @Override
+////            public void onFailure(Call<JournalDto> call, Throwable t) {
+////
+////            }
+////        });
+//
+//        // 전체 일기 검색
+//        serverApi.JournalSearchALL().enqueue(new Callback<JournalDto>() {
+//            @Override
+//            public void onResponse(Call<JournalDto> call, Response<JournalDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JournalDto> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 
     }
+
+
 }

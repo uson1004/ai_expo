@@ -1,12 +1,17 @@
 package com.example.ai_expo.Dtos;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 import retrofit2.http.Multipart;
 
 public class JournalDtoRequest {
+    @Expose
     private String title;
+    @Expose
     private String content;
+    @Expose
     private List<Multipart> files;
 
     public JournalDtoRequest(String title, String content, List<Multipart> files) {

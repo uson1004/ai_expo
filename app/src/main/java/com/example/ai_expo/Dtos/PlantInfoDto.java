@@ -1,15 +1,22 @@
 package com.example.ai_expo.Dtos;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 import retrofit2.http.Multipart;
 
 public class PlantInfoDto {
     private String plantName;
+    @SerializedName("date")
     private String date;
+    @SerializedName("temp")
     private String temp;
+    @SerializedName("humi")
     private String humi;
+    @SerializedName("rate")
     private String rate;
+    @SerializedName("situation")
     private int situation;
 
 

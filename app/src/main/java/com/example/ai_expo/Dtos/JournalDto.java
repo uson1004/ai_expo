@@ -11,15 +11,29 @@ public class JournalDto {
     @Expose
     @SerializedName("user_id")
     private String user_id;
+
+    @Expose
+    private Integer id;
     private String title;
     private String content;
     //private List<String> imageUrls;
 
 
-    public JournalDto(String user_id, String title, String content) {
+    public JournalDto(String user_id, String title, String content, Integer id) {
         this.user_id = user_id;
         this.title = title;
         this.content = content;
+        this.id = id;
+    }
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUser_id() {

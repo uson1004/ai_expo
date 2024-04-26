@@ -20,7 +20,7 @@ ImageButton imageButton13;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary2);
         Intent intent_diary_1 = new Intent(getApplicationContext(), diary_1_activity.class);
-        Intent intent_diary_3 = new Intent(getApplicationContext(), diary_3_activity.class);
+        Intent intent_diary_3My = new Intent(getApplicationContext(), diary_3_mypage.class);
         Intent intent_management = new Intent(getApplicationContext(), plant_management.class);
         Intent intent_my = new Intent(getApplicationContext(), diary_3_mypage.class);
 
@@ -39,7 +39,7 @@ ImageButton imageButton13;
 
         imageButton9.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                startActivity(intent_diary_3);
+                startActivity(intent_diary_3My);
             }
         });
         imageButton13.setOnClickListener(new View.OnClickListener(){

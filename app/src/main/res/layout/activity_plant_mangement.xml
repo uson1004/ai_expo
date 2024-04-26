@@ -32,4 +32,43 @@
         android:background="@drawable/dlfrlwkrtjd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textdate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textHumi"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="96dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTemp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="104dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

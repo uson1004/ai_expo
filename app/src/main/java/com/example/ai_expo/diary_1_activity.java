@@ -28,5 +28,6 @@ ImageView wt;
 
         wt.setOnClickListener(view -> startActivity(intent_diary_3));
 
-            }
+
+    }
 }

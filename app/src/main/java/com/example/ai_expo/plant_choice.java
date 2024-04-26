@@ -41,16 +41,16 @@ ImageButton choice_button;
         ServerApi serverApi = ApiProvider.getInstance().create(ServerApi.class);
         Call<PlantInfoDto> call = serverApi.PickPhoto();
         // 작물 선정 API
-        serverApi.GetPlantInfo().enqueue(new Callback<PlantInfoDto>() {
-            @Override
-            public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<PlantInfoDto> call, Throwable t) {
-
-            }
-        });
+//        serverApi.GetPlantInfo().enqueue(new Callback<PlantInfoDto>() {
+//            @Override
+//            public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PlantInfoDto> call, Throwable t) {
+//
+//            }
+//        });
     }
 }

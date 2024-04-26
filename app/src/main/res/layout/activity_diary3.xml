@@ -19,6 +19,7 @@
 
 
     <ImageButton
+        android:id="@+id/imageButton18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -28,25 +29,46 @@
 
     <ImageButton
         android:id="@+id/imageButton11"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
         android:background="@drawable/diary_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextText3"
         android:layout_width="290dp"
         android:layout_height="350dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
+        android:layout_marginTop="55dp"
         android:gravity="start"
-        android:inputType="text"
         android:hint="내용을 입력하세요."
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:hint="제목을 입력하세요."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11" />
+
+    <android.widget.Button
+
+        android:id="@+id/button2"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="528dp"
+        android:layout_marginEnd="84dp"
+        android:background="@drawable/grey_background"
+        android:text="작성"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton11" />
 
 

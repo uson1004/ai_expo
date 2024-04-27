@@ -22,8 +22,6 @@ ImageButton imageButton13;
         Intent intent_diary_1 = new Intent(getApplicationContext(), diary_1_activity.class);
         Intent intent_diary_3My = new Intent(getApplicationContext(), diary_3_mypage.class);
         Intent intent_management = new Intent(getApplicationContext(), plant_management.class);
-        Intent intent_my = new Intent(getApplicationContext(), diary_3_mypage.class);
-
 
 
         imageButton12 = (ImageButton) findViewById(R.id.imageButton12);
@@ -49,7 +47,7 @@ ImageButton imageButton13;
         });
         imageButton6.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                startActivity(intent_my);
+                startActivity(intent_diary_3My);
             }
         });
     }

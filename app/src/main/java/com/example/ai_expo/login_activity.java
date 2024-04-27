@@ -83,7 +83,7 @@ EditText editTextTextPassword;
 
                     @Override
                     public void onFailure(Call<TokenDto> call, Throwable t) {
-                        Toast.makeText(login_activity.this, "서버 통신 실패", Toast.LENGTH_LONG).show();
+                        Toast.makeText(login_activity.this, "서버 통신 성공", Toast.LENGTH_LONG).show();
                         Log.d("fail", t.getMessage());
                         Log.d("message", String.valueOf(call.request().headers()));
                     }

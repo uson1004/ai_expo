@@ -58,7 +58,6 @@ TextView textTemp;
                 Log.d("현재 습도", String.valueOf(response.body().getHumi()));
                 Log.d("현재 온도", String.valueOf(response.body().getTemp()));
 
-
                 textdate.setText("plantInfoDto.getDate()");
                 textHumi.setText("plantInfoDto.getHumi()");
                 textTemp.setText("plantInfoDto.getTemp()");

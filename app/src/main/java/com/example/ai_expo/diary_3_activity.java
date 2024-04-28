@@ -113,17 +113,17 @@ public class diary_3_activity extends AppCompatActivity {
                     }
                 });
 
-                serverApi.GetAiSensor(token,).enqueue(new Callback<PlantInfoDto>() {
-                    @Override
-                    public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<PlantInfoDto> call, Throwable t) {
-
-                    }
-                });
+//                serverApi.GetAiSensor(token,).enqueue(new Callback<PlantInfoDto>() {
+//                    @Override
+//                    public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<PlantInfoDto> call, Throwable t) {
+//
+//                    }
+//                });
             }
         });
 

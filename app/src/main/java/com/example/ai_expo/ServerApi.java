@@ -1,14 +1,19 @@
 package com.example.ai_expo;
 
+import android.graphics.pdf.PdfDocument;
+
 import com.example.ai_expo.Dtos.JournalDto;
-import com.example.ai_expo.Dtos.JournalDtoRequest;
 import com.example.ai_expo.Dtos.JournalDtoResponse;
 import com.example.ai_expo.Dtos.PlantInfoDto;
 import com.example.ai_expo.Dtos.PlantManagement.PlantCreate;
 import com.example.ai_expo.Dtos.StringResponsesDto;
 import com.example.ai_expo.Dtos.TokenDto;
 
+import java.util.Map;
+
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -19,11 +24,12 @@ import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface ServerApi {
     @POST("/login")
-    Call<TokenDto> login(
+    Call<ResponseBody> login(
             //@Body LoginRequest loginRequest
             @Body TokenDto tokenDto
 
@@ -41,35 +47,37 @@ public interface ServerApi {
             @Header("authorization") String token
     );
 
-    @GET("/plant/ai/{method}")
+    @Multipart
+    @GET("/PlantM/ai")
     Call<PlantInfoDto> GetAiSensor(
-            @Header("authorization") String token
-    );
+            @Header("authorization") String token,
+            @Part MultipartBody.Part file
+            );
 
 
     // 일기 API
-    //@Multipart
+    @Multipart
     @POST("/journal/write")
-    Call<StringResponsesDto> JournalWrite(
+    Call<ResponseBody> JournalWrite(
             @Header("authorization") String token,
-//            @Part String title,
-//            @Part String content
-            @Body JournalDtoRequest journalDtoRequest
+            @PartMap Map<String, RequestBody> map
+           // @Part ArrayList<MultipartBody.Part> file
     );
 
     @PATCH("/journal/update/{pageNUM}")
-    Call<String> JournalUpdate(
+    Call<ResponseBody> JournalUpdate(
            @Body JournalDtoResponse journal
     );
 
     @DELETE("/journal/delete/")
-    Call<JournalDto> JournalDelete(
+    Call<ResponseBody> JournalDelete(
             @Query("num") Integer num
     );
 
     @GET("/journal/select")
     Call<JournalDto> JournalSearch(
-
+            @Query("page") Integer p,
+            @Query("size") Integer s
     );
 
     @GET("/journal/page")
@@ -86,12 +94,12 @@ public interface ServerApi {
 
 
     @POST("/PlantM/create")
-    Call<PlantCreate> PickInsert(
+    Call<ResponseBody> PickInsert(
             @Body PlantCreate p
     );
 
     @PUT("/pick/update")
-    Call<PlantCreate> PickUpdate(
+    Call<ResponseBody> PickUpdate(
             @Body PlantCreate p
     );
 

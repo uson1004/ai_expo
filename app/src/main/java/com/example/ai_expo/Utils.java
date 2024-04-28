@@ -2,6 +2,7 @@ package com.example.ai_expo;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import retrofit2.http.GET;
 

@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.example.ai_expo.Dtos.TokenDto;
 
+import java.util.Objects;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,12 +58,12 @@ EditText editTextTextPassword;
 
 
                 ServerApi serverApi = ApiProvider.getInstance().create(ServerApi.class);
-                Call<TokenDto> call = serverApi.login(tokenDto);
+                Call<ResponseBody> call = serverApi.login(tokenDto);
 
 
-                call.enqueue(new Callback<TokenDto>() {
+                call.enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(Call<TokenDto> call, Response<TokenDto> response) {
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(login_activity.this, "성공하였습니다", Toast.LENGTH_LONG).show();
                         } else {
@@ -72,17 +75,18 @@ EditText editTextTextPassword;
                         if (!response.isSuccessful()) {
                             Log.e("연결이 비정상적 : ", "error code : " + response.code());
                         } else {
-                            Utils.setAccessToken(response.body().getAccessToken());
-                            Utils.setRefreshToken(response.body().getRefreshToken());
-                            Log.e("Login", "at : " + Utils.getAccessToken("nein"));
-                            Log.e("Login", "rt : " + Utils.getRefreshToken("none"));
+                            Log.e("headers", Objects.requireNonNull(response.headers().get("Authorization")));
+                            //Utils.setAccessToken(response.headers().get("Authorization"));
+                            //Utils.setRefreshToken(response.body().getRefreshToken());
+                           // Log.e("Login", "at : " + Utils.getAccessToken();
+                            //Log.e("Login", "rt : " + Utils.getRefreshToken("none"));
 
                         }
 
                     }
 
                     @Override
-                    public void onFailure(Call<TokenDto> call, Throwable t) {
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
                         Toast.makeText(login_activity.this, "서버 통신 성공", Toast.LENGTH_LONG).show();
                         Log.d("fail", t.getMessage());
                         Log.d("message", String.valueOf(call.request().headers()));

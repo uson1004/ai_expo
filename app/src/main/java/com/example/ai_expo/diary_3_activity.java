@@ -22,8 +22,13 @@ import com.example.ai_expo.Dtos.StringResponsesDto;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,7 +80,7 @@ public class diary_3_activity extends AppCompatActivity {
                 Call<PlantInfoDto> call = serverApi.PickPhoto();
 
 
-                String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0MDgyNTI1LCJleHAiOjE3MTQxMTg1MjV9.wJk9Sj-Le9U_yEdrB_lN-9GmWlaEvIAcBZO1IIsyXbA";
+                String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0MjY5MDcxLCJleHAiOjE3MTQzMDUwNzF9.hurtFetmiP3Y8BDvv9LpCPbXzjxZmlMwzJr6CR4ifWo";
 
                 String title = editTextText2.getText().toString();
                 String content = editTextText3.getText().toString();
@@ -83,23 +88,40 @@ public class diary_3_activity extends AppCompatActivity {
 
                 Log.e("fdf",title);
                 Log.e("dfdf",content);
-                JournalDtoRequest journalDtoRequest = new JournalDtoRequest(title, content, null);
 
-                Log.e("get",journalDtoRequest.getTitle());
-                Log.e("get2",journalDtoRequest.getContent());
+                Map<String, RequestBody> map = new HashMap<>();
+                RequestBody titles = RequestBody.create(MediaType.parse("text/plain"),title);
+                RequestBody contents = RequestBody.create(MediaType.parse("text/plain"),content);
+
+
+                map.put("title",titles);
+                map.put("content",contents);
+
                 //일기 작성
-                serverApi.JournalWrite(token,journalDtoRequest).enqueue(new Callback<StringResponsesDto>() {
+                serverApi.JournalWrite(token,map).enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(Call<StringResponsesDto> call, Response<StringResponsesDto> response) {
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         Log.d("result", String.valueOf(response.headers()));
                     }
 
                     @Override
-                    public void onFailure(Call<StringResponsesDto> call, Throwable t) {
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
                         Log.d("err", t.getMessage());
 //                        Log.d("title",title);
 //                        Log.d("content",content);
                         Log.d("test",editTextText2.getText().toString());
+                    }
+                });
+
+                serverApi.GetAiSensor(token,).enqueue(new Callback<PlantInfoDto>() {
+                    @Override
+                    public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<PlantInfoDto> call, Throwable t) {
+
                     }
                 });
             }

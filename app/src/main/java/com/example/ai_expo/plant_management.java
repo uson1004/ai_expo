@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.ai_expo.Dtos.PlantInfoDto;
 
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,22 +51,26 @@ TextView textTemp;
 
 
 
-        String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0MDgyNTI1LCJleHAiOjE3MTQxMTg1MjV9.wJk9Sj-Le9U_yEdrB_lN-9GmWlaEvIAcBZO1IIsyXbA";
+        String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0Mjc4MDk5LCJleHAiOjE3MTQzMTQwOTl9.SGyKos5S9g_hHSbqVDIXF9BJ1RHKR1uFzlp7yQQVHmQ";
         serverApi.GetPlantInfo(token).enqueue(new Callback<PlantInfoDto>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<PlantInfoDto> call, Response<PlantInfoDto> response) {
-                Log.d("현재 토양 수분", String.valueOf(response.body().getDate()));
-                Log.d("현재 습도", String.valueOf(response.body().getHumi()));
-                Log.d("현재 온도", String.valueOf(response.body().getTemp()));
+                if(response.body().getDate()!=null) {
+                    Log.d("현재 토양 수분", String.valueOf(response.body().getDate()));
+                    Log.d("현재 습도", String.valueOf(response.body().getHumi()));
+                    Log.d("현재 온도", String.valueOf(response.body().getTemp()));
 
-                textdate.setText("plantInfoDto.getDate()");
-                textHumi.setText("plantInfoDto.getHumi()");
-                textTemp.setText("plantInfoDto.getTemp()");
+                    textdate.setText(String.valueOf(response.body().getDate()));
+                    textHumi.setText(String.valueOf(response.body().getHumi()));
+                    textTemp.setText(String.valueOf(response.body().getTemp()));
 
-                textdate.bringToFront();
-                textTemp.bringToFront();
-                textHumi.bringToFront();
+                    textdate.bringToFront();
+                    textTemp.bringToFront();
+                    textHumi.bringToFront();
+                }
+                else
+                    Log.d("null","isnull");
             }
 
             @Override
@@ -72,5 +78,6 @@ TextView textTemp;
                 Log.e("fail",t.getMessage());
             }
         });
+
     }
 }

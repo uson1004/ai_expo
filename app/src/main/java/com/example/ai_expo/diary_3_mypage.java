@@ -12,5 +12,6 @@ public class diary_3_mypage extends AppCompatActivity {
         setContentView(R.layout.activity_diary3_mypage);
 
 
+
     }
 }

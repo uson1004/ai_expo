@@ -3,6 +3,7 @@ package com.example.ai_expo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +65,8 @@ EditText editTextTextPassword;
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Utils.init(login_activity.this);
+
                         if (response.isSuccessful()) {
                             Toast.makeText(login_activity.this, "성공하였습니다", Toast.LENGTH_LONG).show();
                         } else {
@@ -76,9 +79,9 @@ EditText editTextTextPassword;
                             Log.e("연결이 비정상적 : ", "error code : " + response.code());
                         } else {
                             Log.e("headers", Objects.requireNonNull(response.headers().get("Authorization")));
-                            //Utils.setAccessToken(response.headers().get("Authorization"));
+                            Utils.setAccessToken(response.headers().get("Authorization"));
                             //Utils.setRefreshToken(response.body().getRefreshToken());
-                           // Log.e("Login", "at : " + Utils.getAccessToken();
+                            Log.e("Login", "at : " + Utils.getAccessToken("Bearer"));
                             //Log.e("Login", "rt : " + Utils.getRefreshToken("none"));
 
                         }

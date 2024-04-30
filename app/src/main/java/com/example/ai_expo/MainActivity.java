@@ -2,8 +2,10 @@ package com.example.ai_expo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), plant_management.class);
         main_management = (ImageButton) findViewById(R.id.management);
         main_write = (ImageButton) findViewById(R.id.main_write);
+
+        String token = getSharedPreferences("prefs", Context.MODE_PRIVATE).getAll().get("Access_Token").toString();
         main_management.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 startActivity(intent);

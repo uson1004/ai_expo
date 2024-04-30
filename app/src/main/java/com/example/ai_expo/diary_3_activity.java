@@ -5,6 +5,7 @@ import static java.time.LocalDateTime.now;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.example.ai_expo.Dtos.JournalDto;
 import com.example.ai_expo.Dtos.JournalDtoRequest;
@@ -41,6 +43,7 @@ public class diary_3_activity extends AppCompatActivity {
     EditText editTextText3;
     Button button2;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,6 @@ public class diary_3_activity extends AppCompatActivity {
         editTextText2 = (EditText) findViewById(R.id.editTextText2);
         editTextText3 = (EditText) findViewById(R.id.editTextText3);
         button2 = (Button) findViewById(R.id.button2);
-
 
 
 
@@ -80,7 +82,8 @@ public class diary_3_activity extends AppCompatActivity {
                 Call<PlantInfoDto> call = serverApi.PickPhoto();
 
 
-                String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0MjY5MDcxLCJleHAiOjE3MTQzMDUwNzF9.hurtFetmiP3Y8BDvv9LpCPbXzjxZmlMwzJr6CR4ifWo";
+                String token = getSharedPreferences("prefs", Context.MODE_PRIVATE).getAll().get("Access_Token").toString();
+
 
                 String title = editTextText2.getText().toString();
                 String content = editTextText3.getText().toString();

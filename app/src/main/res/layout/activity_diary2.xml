@@ -132,6 +132,7 @@
 
     </LinearLayout>
 
+    <!--이 버튼을 누르면 감소 (total page가 1보다 작으면 감소 x)-->
     <ImageButton
         android:id="@+id/imageButton14"
         android:layout_width="7dp"
@@ -142,6 +143,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton12"
         app:layout_constraintTop_toTopOf="@+id/imageButton17" />
 
+    <!--텍스트 area로 바꾸기-->
     <ImageButton
         android:id="@+id/imageButton17"
         android:layout_width="5dp"
@@ -152,6 +154,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton12"
         app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
 
+    <!--이 버튼을 누르면 증가-->
     <ImageButton
         android:id="@+id/imageButton15"
         android:layout_width="wrap_content"

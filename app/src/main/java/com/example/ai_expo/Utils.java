@@ -25,7 +25,7 @@ public class Utils {
 
     private Utils(Context context) {
         mContext = context;
-        prefs = mContext.getSharedPreferences(PREFS,Context.MODE_PRIVATE);
+        prefs = mContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         prefsEditor = prefs.edit();
     }
 

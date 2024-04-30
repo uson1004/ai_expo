@@ -1,12 +1,11 @@
 package com.example.ai_expo;
 
-import android.graphics.pdf.PdfDocument;
-
 import com.example.ai_expo.Dtos.JournalDto;
 import com.example.ai_expo.Dtos.JournalDtoResponse;
 import com.example.ai_expo.Dtos.PlantInfoDto;
 import com.example.ai_expo.Dtos.PlantManagement.PlantCreate;
-import com.example.ai_expo.Dtos.StringResponsesDto;
+
+import com.example.ai_expo.Dtos.PostResponses.PostResponse;
 import com.example.ai_expo.Dtos.TokenDto;
 
 import java.util.Map;
@@ -75,13 +74,14 @@ public interface ServerApi {
     );
 
     @GET("/journal/select")
-    Call<JournalDto> JournalSearch(
+    Call<PostResponse> JournalSearchAll(
             @Query("page") Integer p,
-            @Query("size") Integer s
+            @Query("size") Integer s,
+            @Header("authorization") String token
     );
 
     @GET("/journal/page")
-    Call<JournalDto> JournalSearchALL(
+    Call<JournalDto> JournalSearch(
             @Query("num") Integer s
     );
 
@@ -92,6 +92,11 @@ public interface ServerApi {
 
     );
 
+    @GET("/journal/image")
+    Call<ResponseBody> getImage(
+            @Query("num") Integer num,
+            @Query("filenum") Integer fnum
+    );
 
     @POST("/PlantM/create")
     Call<ResponseBody> PickInsert(

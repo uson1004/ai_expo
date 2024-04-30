@@ -1,6 +1,7 @@
 package com.example.ai_expo.Dtos;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,11 +11,16 @@ import retrofit2.http.Multipart;
 public class JournalDtoResponse {
 
     @Expose
+    @SerializedName("id")
     private int id;
     private String user_id;
+    @SerializedName("title")
     private String title;
+    @SerializedName("content")
     private String content;
+    @SerializedName("date")
     private LocalDateTime time;
+    @SerializedName("file")
     private List<String> imageUrls;
     private List<Multipart> files;
 

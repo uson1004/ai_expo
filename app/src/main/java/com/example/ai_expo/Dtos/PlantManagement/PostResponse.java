@@ -1,5 +1,6 @@
-package com.example.ai_expo.Dtos.PostResponses;
+package com.example.ai_expo.Dtos.PlantManagement;
 
+import com.example.ai_expo.Dtos.Post;
 import com.google.gson.annotations.SerializedName;
 
 

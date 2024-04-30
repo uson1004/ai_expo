@@ -1,4 +1,4 @@
-package com.example.ai_expo.Dtos.PostResponses;
+package com.example.ai_expo.Dtos;
 
 import com.google.gson.annotations.SerializedName;
 

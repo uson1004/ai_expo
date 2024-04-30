@@ -1,6 +1,6 @@
-package com.example.ai_expo.Dtos.PostResponses;
+package com.example.ai_expo.Dtos;
 
-import com.example.ai_expo.Dtos.PostResponses.Plant;
+import com.example.ai_expo.Dtos.Plant;
 import com.google.gson.annotations.SerializedName;
 
 public class User {

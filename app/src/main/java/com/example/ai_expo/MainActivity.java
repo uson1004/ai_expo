@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         main_write = (ImageButton) findViewById(R.id.main_write);
 
         String token = getSharedPreferences("prefs", Context.MODE_PRIVATE).getAll().get("Access_Token").toString();
+
+        Log.e("token",token);
         main_management.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 startActivity(intent);

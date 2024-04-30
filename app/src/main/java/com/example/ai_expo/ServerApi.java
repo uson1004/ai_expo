@@ -5,7 +5,8 @@ import com.example.ai_expo.Dtos.JournalDtoResponse;
 import com.example.ai_expo.Dtos.PlantInfoDto;
 import com.example.ai_expo.Dtos.PlantManagement.PlantCreate;
 
-import com.example.ai_expo.Dtos.PostResponses.PostResponse;
+import com.example.ai_expo.Dtos.PlantManagement.PostResponse;
+import com.example.ai_expo.Dtos.Post;
 import com.example.ai_expo.Dtos.TokenDto;
 
 import java.util.Map;
@@ -81,8 +82,9 @@ public interface ServerApi {
     );
 
     @GET("/journal/page")
-    Call<JournalDto> JournalSearch(
-            @Query("num") Integer s
+    Call<Post> JournalSearch(
+            @Query("num") Integer s,
+            @Header("authorization") String token
     );
 
     // 작물선정 API

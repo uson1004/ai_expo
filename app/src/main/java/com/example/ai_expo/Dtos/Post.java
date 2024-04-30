@@ -1,4 +1,4 @@
-package com.example.ai_expo.Dtos.PostResponses;
+package com.example.ai_expo.Dtos;
 
 
 import com.google.gson.annotations.SerializedName;
@@ -20,7 +20,7 @@ public class Post {
     private String content;
 
     @SerializedName("date")
-    private LocalDateTime date;
+    private String  date;
 
     @SerializedName("file")
     private List<FileDto> files;
@@ -57,11 +57,11 @@ public class Post {
         this.content = content;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

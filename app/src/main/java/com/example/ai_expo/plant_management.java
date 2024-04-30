@@ -3,6 +3,7 @@ package com.example.ai_expo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +52,7 @@ TextView textTemp;
 
 
 
-        String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE0Mjc4MDk5LCJleHAiOjE3MTQzMTQwOTl9.SGyKos5S9g_hHSbqVDIXF9BJ1RHKR1uFzlp7yQQVHmQ";
+        String token = getSharedPreferences("prefs", Context.MODE_PRIVATE).getAll().get("Access_Token").toString();
         serverApi.GetPlantInfo(token).enqueue(new Callback<PlantInfoDto>() {
             @SuppressLint("SetTextI18n")
             @Override

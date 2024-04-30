@@ -20,7 +20,7 @@
     <ImageView
         android:layout_width="250dp"
         android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="124dp"
         android:background="@drawable/img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,40 +37,41 @@
 
     <TextView
         android:id="@+id/textdate"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="52dp"
+        android:layout_width="79dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="68dp"
         android:fontFamily="@font/nunito_bold"
-        android:text="0"
+        android:maxLength="5"
+        android:text="00.0"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textHumi"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="52dp"
+        android:layout_width="80dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="76dp"
         android:fontFamily="@font/nunito_bold"
-        android:text="0"
+        android:text="@string/_00_0"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textTemp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="52dp"
+        android:layout_width="77dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="80dp"
         android:fontFamily="@font/nunito_bold"
-        android:text="0"
+        android:text="@string/_00_0"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import com.example.ai_expo.Dtos.PlantManagement.PostResponse;
 import com.example.ai_expo.Dtos.Post;
 import com.example.ai_expo.Dtos.TokenDto;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
@@ -47,13 +48,17 @@ public interface ServerApi {
             @Header("authorization") String token
     );
 
-    @Multipart
+    //@Multipart
     @GET("/PlantM/ai")
     Call<PlantInfoDto> GetAiSensor(
-            @Header("authorization") String token,
-            @Part MultipartBody.Part file
+            @Header("authorization") String token
+//            ,@Part MultipartBody.Part file
             );
 
+    @GET("/PlantM/rate")
+    Call<ResponseBody> rateSet(
+            @Header("authorization") String token
+    );
 
     // 일기 API
     @Multipart
@@ -61,7 +66,8 @@ public interface ServerApi {
     Call<ResponseBody> JournalWrite(
             @Header("authorization") String token,
             @PartMap Map<String, RequestBody> map
-           // @Part ArrayList<MultipartBody.Part> file
+            //@Part ArrayList<MultipartBody.Part> file
+            //@Part MultipartBody.Part file
     );
 
     @PATCH("/journal/update/{pageNUM}")

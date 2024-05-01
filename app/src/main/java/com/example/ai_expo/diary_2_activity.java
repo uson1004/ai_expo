@@ -29,6 +29,8 @@ ImageButton imageButton6;
 ImageButton imageButton13;
 ImageButton imageButton17;
 
+ImageButton imageButton11;
+
 RecyclerView diaryRecycler;
 DiaryAdapter diaryAdapter;
 
@@ -38,8 +40,9 @@ DiaryAdapter diaryAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary2);
         Intent intent_diary_1 = new Intent(getApplicationContext(), diary_1_activity.class);
-        Intent intent_diary_3My = new Intent(getApplicationContext(), diary_3_mypage.class);
+        Intent intent_diary_3 = new Intent(getApplicationContext(), diary_3_activity.class);
         Intent intent_management = new Intent(getApplicationContext(), plant_management.class);
+        Intent main = new Intent(getApplicationContext(), MainActivity.class);
 
         diaryRecycler = findViewById(R.id.diaryRecycler);
 
@@ -52,7 +55,8 @@ DiaryAdapter diaryAdapter;
         imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
         imageButton13 = (ImageButton) findViewById(R.id.imageButton13);
         //imageButton6 = (ImageButton) findViewById(R.id.imageButton6);
-        imageButton17 = (ImageButton) findViewById(R.id.imageButton17);
+        //imageButton17 = (ImageButton) findViewById(R.id.imageButton17);
+        imageButton11 = (ImageButton) findViewById(R.id.imageButton11);
 
 
 
@@ -120,12 +124,20 @@ DiaryAdapter diaryAdapter;
 
         imageButton9.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                startActivity(intent_diary_3My);
+
+                startActivity(intent_diary_3);
             }
         });
         imageButton13.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 startActivity(intent_management);
+            }
+        });
+
+        imageButton11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(main);
             }
         });
 //        imageButton6.setOnClickListener(new View.OnClickListener(){
